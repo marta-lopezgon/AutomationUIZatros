@@ -58,14 +58,14 @@ public class Main {
             }
         });
 
-        WebElement myCard = driver.findElement(By.xpath("//*[@id=\'page\']/div[4]/nav/div[8]/span[1]"));
-        myCard.click();
-        WebElement shoeCardId = driver.findElement(By.xpath("//*[@id=\'carrito\']/div/div/ul/li/div[3]/a/span"));
-        shoeCardId.getText();
-        String shoeCardIdText = shoeCardId.getText();
+        WebElement myCart = driver.findElement(By.xpath("//*[@id=\'page\']/div[4]/nav/div[8]/span[1]"));
+        myCart.click();
+        WebElement shoeCartId = driver.findElement(By.xpath("//*[@id=\'carrito\']/div/div/ul/li/div[3]/a/span"));
+        shoeCartId.getText();
+        String shoeCartIdText = shoeCartId.getText();
 
-        Assert.assertEquals(shoeIdText, shoeCardIdText);
-        System.out.println(shoeIdText + " = " + shoeCardIdText);
+        Assert.assertEquals(shoeIdText, shoeCartIdText);
+        System.out.println(shoeIdText + " = " + shoeCartIdText);
 
         //Close the browser
 //        driver.quit();
