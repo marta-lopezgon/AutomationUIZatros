@@ -5,9 +5,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
-public class Main  {
+public class Main {
     public static void main(String[] args) {
         WebDriver driver = new FirefoxDriver();
 
@@ -45,12 +44,10 @@ public class Main  {
         WebElement myCard = driver.findElement(By.className("cesta-btn"));
         myCard.click();
 
-//        @Test
-//        public void assertProducts() {
-//            WebElement shoeId = driver.findElement(By.xpath("//*[@id=\"product2351\"]/div/div/a[2]"));
-//            WebElement shoeCardId = driver.findElement(By.xpath("//*[@id=\"carrito\"]/div/div/ul/li/div[3]/a/span"));
-//            Assert.assertEquals(shoeId, shoeCardId);
-//            System.out.print("\n assertProducts() -> Part executed");
+//        WebElement shoeCardId = driver.findElement(By.xpath("//*[@id=\"carrito\"]/div/div/ul/li/div[3]/a/span"));
+//        WebElement shoeId = driver.findElement(By.xpath("//*[@id=\"product2351\"]/div/div/a[2]"));
+//        if (Assert.assertEquals(shoeId, shoeCardId) == true) {
+//            System.out.println("Both are equal");
 //        }
 
         //Close the browser
