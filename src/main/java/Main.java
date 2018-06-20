@@ -45,6 +45,14 @@ public class Main  {
         WebElement myCard = driver.findElement(By.className("cesta-btn"));
         myCard.click();
 
+//        @Test
+//        public void assertProducts() {
+//            WebElement shoeId = driver.findElement(By.xpath("//*[@id=\"product2351\"]/div/div/a[2]"));
+//            WebElement shoeCardId = driver.findElement(By.xpath("//*[@id=\"carrito\"]/div/div/ul/li/div[3]/a/span"));
+//            Assert.assertEquals(shoeId, shoeCardId);
+//            System.out.print("\n assertProducts() -> Part executed");
+//        }
+
         //Close the browser
         driver.quit();
     }
