@@ -27,6 +27,9 @@ public class Main {
         });
 
         WebElement secondShoe = driver.findElement(By.xpath("//*[@id=\'product2351\']/div/a"));
+        WebElement shoeId = driver.findElement(By.xpath("//*[@id=\'product2351\']/div/div/a[2]"));
+        shoeId.getText();
+        String shoeIdText = shoeId.getText();
         secondShoe.click();
 
         WebElement sizeList = driver.findElement(By.xpath("//*[@id=\'page\']/div[5]/div/div/div[3]/div[3]/div[2]/div/div[3]/div[2]"));
@@ -38,19 +41,33 @@ public class Main {
         WebElement addToCard = driver.findElement(By.xpath("//*[@id='page']/div[5]/div/div/div[3]/div[3]/div[2]/div/div[4]/button[1]"));
         addToCard.click();
 
+        //AGAIN I HAD TO MAKE IT WAIT BECAUSE SOMETIMES IT GAVE AN ERROR
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(By.className("btn-pagar"));
+            }
+        });
+
         WebElement checkOut = driver.findElement(By.className("btn-pagar"));
         checkOut.click();
 
-        WebElement myCard = driver.findElement(By.className("cesta-btn"));
-        myCard.click();
+        //AGAIN I HAD TO MAKE IT WAIT BECAUSE SOMETIMES IT GAVE AN ERROR
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(By.xpath("//*[@id=\'page\']/div[4]/nav/div[8]/span[1]"));
+            }
+        });
 
-//        WebElement shoeCardId = driver.findElement(By.xpath("//*[@id=\"carrito\"]/div/div/ul/li/div[3]/a/span"));
-//        WebElement shoeId = driver.findElement(By.xpath("//*[@id=\"product2351\"]/div/div/a[2]"));
-//        if (Assert.assertEquals(shoeId, shoeCardId) == true) {
-//            System.out.println("Both are equal");
-//        }
+        WebElement myCard = driver.findElement(By.xpath("//*[@id=\'page\']/div[4]/nav/div[8]/span[1]"));
+        myCard.click();
+        WebElement shoeCardId = driver.findElement(By.xpath("//*[@id=\'carrito\']/div/div/ul/li/div[3]/a/span"));
+        shoeCardId.getText();
+        String shoeCardIdText = shoeCardId.getText();
+
+        Assert.assertEquals(shoeIdText, shoeCardIdText);
+        System.out.println(shoeIdText + " = " + shoeCardIdText);
 
         //Close the browser
-        driver.quit();
+//        driver.quit();
     }
 }
